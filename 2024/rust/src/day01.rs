@@ -2,7 +2,7 @@ use std::{collections::HashMap, fs};
 
 pub fn day01() {
 	// Part 1.
-	let contents = fs::read_to_string("src/inputs/day01-input.txt")
+	let contents = fs::read_to_string("../inputs/day01-input.txt")
 		.expect("Should have been able to read the file");
 	let pairs = contents.lines().map(|line| line.split("   ").collect::<Vec<&str>>());
 	let mut column1 = pairs.clone().map(|pair| pair[0].parse::<i32>().unwrap()).collect::<Vec<i32>>();
