@@ -1,7 +1,7 @@
-import { readFileSync } from 'node:fs';
+import { getPuzzleInput } from './getPuzzleInput.mjs';
 
 // Part 1.
-const lines = readFileSync('input.txt', { encoding: 'utf-8' }).split('\n').map(line => line.replace(/\s+/, ' '));
+const lines = (await getPuzzleInput(1)).split('\n').map(line => line.replace(/\s+/, ' '));
 lines.pop();
 const column1 = lines.map(line => line.split(' ')[0]).map(Number).sort();
 const column2 = lines.map(line => line.split(' ')[1]).map(Number).sort();
