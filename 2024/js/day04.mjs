@@ -75,3 +75,56 @@ for (let r = 0; r < height; r++) {
 	}
 }
 console.info('Part 1:', total);
+
+// Part 2.
+function hasXmas1 (row, column) {
+	const string =
+		lines[row - 1]?.[column - 1]
+		+ lines[row]?.[column]
+		+ lines[row + 1]?.[column + 1]
+		+ lines[row - 1]?.[column + 1]
+		+ lines[row]?.[column]
+		+ lines[row + 1]?.[column - 1];
+	return string === 'MASMAS';
+}
+function hasXmas2 (row, column) {
+	const string =
+		lines[row - 1]?.[column - 1]
+		+ lines[row]?.[column]
+		+ lines[row + 1]?.[column + 1]
+		+ lines[row + 1]?.[column - 1]
+		+ lines[row]?.[column]
+		+ lines[row - 1]?.[column + 1];
+	return string === 'MASMAS';
+}
+function hasXmas3 (row, column) {
+	const string =
+		lines[row + 1]?.[column + 1]
+		+ lines[row]?.[column]
+		+ lines[row - 1]?.[column - 1]
+		+ lines[row - 1]?.[column + 1]
+		+ lines[row]?.[column]
+		+ lines[row + 1]?.[column - 1];
+	return string === 'MASMAS';
+}
+function hasXmas4 (row, column) {
+	const string =
+		lines[row + 1]?.[column + 1]
+		+ lines[row]?.[column]
+		+ lines[row - 1]?.[column - 1]
+		+ lines[row + 1]?.[column - 1]
+		+ lines[row]?.[column]
+		+ lines[row - 1]?.[column + 1];
+	return string === 'MASMAS';
+}
+
+total = 0;
+for (let r = 0; r < height; r++) {
+	for (let c = 0; c < width; c++) {
+		total += Number(hasXmas1(r, c));
+		total += Number(hasXmas2(r, c));
+		total += Number(hasXmas3(r, c));
+		total += Number(hasXmas4(r, c));
+	}
+}
+console.info('Part 2:', total);
