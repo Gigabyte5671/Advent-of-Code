@@ -3,8 +3,8 @@ import { session } from './session.mjs';
 
 export async function getPuzzleInput (day, test) {
 	if (test) {
-		const path = `../inputs/day${day.toString().padStart(2, '0')}-test.txt`
-		return readFileSync(path, { encoding: 'utf-8' });
+		const path = `../inputs/day${day.toString().padStart(2, '0')}-test.txt`;
+		return readFileSync(path, { encoding: 'utf-8' }).replaceAll('\r', '');
 	}
 	const headers = { cookie: session };
 	const url = `https://adventofcode.com/2024/day/${day}/input`;
