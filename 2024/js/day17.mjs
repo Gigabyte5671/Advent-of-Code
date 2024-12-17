@@ -138,3 +138,30 @@ function part1 () {
 	console.info('Part 1:', output);
 }
 part1();
+
+// Part 2.
+function optimisedComputer (A = 0) {
+	const output = [];
+	let a = A;
+	let b = 0;
+	let c = 0;
+	let o = 0;
+	for (let i = 0; i < 16; i++) {
+		b = a % 8;
+		b = b ^ 6;
+		c = Math.trunc(a / Math.pow(2, b));
+		b = b ^ c;
+		b = b ^ 7;
+		a = Math.trunc(a / 8);
+		o = b % 8;
+		if (o < 0) break;
+		output.push(o);
+		if (a === 0) break;
+	}
+	return output;
+}
+
+function part2 () {
+	console.info('Part 2:');
+}
+part2();
